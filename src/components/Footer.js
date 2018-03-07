@@ -10,6 +10,7 @@ function Footer ({
 	countSeparator,
 	countTotal,
 	showCount,
+	show_donate_button,
 	...props,
 }, {
 	theme,
@@ -33,6 +34,19 @@ function Footer ({
 					{caption}
 				</figcaption>
 			) : <span />}
+			<div className="React-Images-donate-button-container">
+			{show_donate_button ?
+				<a
+					href="https://donate.cerebralpalsyfoundation.org/give/171692/#!/donation/checkout"
+					target="_blank"
+					className="React-Images-Donate-Button"
+					>
+					Donate
+				</a>
+				:
+				''
+			}
+			</div>
 			{imageCount}
 		</div>
 	);

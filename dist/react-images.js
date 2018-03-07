@@ -453,7 +453,8 @@ function Footer(_ref, _ref2) {
 	    countSeparator = _ref.countSeparator,
 	    countTotal = _ref.countTotal,
 	    showCount = _ref.showCount,
-	    props = objectWithoutProperties(_ref, ['caption', 'countCurrent', 'countSeparator', 'countTotal', 'showCount']);
+	    show_donate_button = _ref.show_donate_button,
+	    props = objectWithoutProperties(_ref, ['caption', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button']);
 
 	if (!caption && !showCount) return null;
 
@@ -475,6 +476,19 @@ function Footer(_ref, _ref2) {
 			{ className: noImportant.css(classes.footerCaption) },
 			caption
 		) : React__default.createElement('span', null),
+		React__default.createElement(
+			'div',
+			{ className: 'React-Images-donate-button-container' },
+			show_donate_button ? React__default.createElement(
+				'a',
+				{
+					href: 'https://donate.cerebralpalsyfoundation.org/give/171692/#!/donation/checkout',
+					target: '_blank',
+					className: 'React-Images-Donate-Button'
+				},
+				'Donate'
+			) : ''
+		),
 		imageCount
 	);
 }
@@ -1336,7 +1350,8 @@ var Lightbox = function (_Component) {
 			    currentImage = _props6.currentImage,
 			    images = _props6.images,
 			    imageCountSeparator = _props6.imageCountSeparator,
-			    showImageCount = _props6.showImageCount;
+			    showImageCount = _props6.showImageCount,
+			    show_donate_button = _props6.show_donate_button;
 
 
 			if (!images || !images.length) return null;
@@ -1346,7 +1361,8 @@ var Lightbox = function (_Component) {
 				countCurrent: currentImage + 1,
 				countSeparator: imageCountSeparator,
 				countTotal: images.length,
-				showCount: showImageCount
+				showCount: showImageCount,
+				show_donate_button: show_donate_button
 			});
 		}
 	}, {

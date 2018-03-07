@@ -331,6 +331,8 @@ class Lightbox extends Component {
 		return (
 			<Footer
 				caption={images[currentImage].caption}
+				prompt1={images[currentImage].prompt1}
+				prompt2={images[currentImage].prompt2}
 				countCurrent={currentImage + 1}
 				countSeparator={imageCountSeparator}
 				countTotal={images.length}

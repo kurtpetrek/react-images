@@ -6,6 +6,8 @@ import deepMerge from '../utils/deepMerge';
 
 function Footer ({
 	caption,
+	prompt1,
+	prompt2,
 	countCurrent,
 	countSeparator,
 	countTotal,
@@ -15,7 +17,7 @@ function Footer ({
 }, {
 	theme,
 }) {
-	if (!caption && !showCount) return null;
+	// if (!caption && !showCount) return null;
 
 	const classes = StyleSheet.create(deepMerge(defaultStyles, theme));
 
@@ -29,9 +31,10 @@ function Footer ({
 
 	return (
 		<div className={css(classes.footer)} {...props}>
-			{caption ? (
+			{prompt1 ? (
 				<figcaption className={css(classes.footerCaption)}>
-					{caption}
+					<b>{prompt2}</b>
+					{prompt1}
 				</figcaption>
 			) : <span />}
 			<div className="React-Images-donate-button-container">
@@ -41,7 +44,7 @@ function Footer ({
 					target="_blank"
 					className="React-Images-Donate-Button"
 					>
-					Donate
+					I'd like to donate $5 to CPF
 				</a>
 				:
 				''

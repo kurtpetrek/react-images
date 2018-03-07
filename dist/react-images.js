@@ -1265,6 +1265,11 @@ var Lightbox = function (_Component) {
 						'div',
 						{ className: aphrodite.css(this.classes.content), style: { marginBottom: offsetThumbnails, maxWidth: width } },
 						imageLoaded && this.renderHeader(),
+						this.props.show_donate_button && React__default.createElement(
+							'h1',
+							{ className: 'Lightbox-image-header' },
+							'Thank You for Adding Your Message!'
+						),
 						this.renderImages(),
 						this.renderSpinner(),
 						imageLoaded && this.renderFooter()

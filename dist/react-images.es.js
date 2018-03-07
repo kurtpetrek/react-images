@@ -1263,6 +1263,11 @@ var Lightbox = function (_Component) {
 						'div',
 						{ className: css(this.classes.content), style: { marginBottom: offsetThumbnails, maxWidth: width } },
 						imageLoaded && this.renderHeader(),
+						this.props.show_donate_button && React.createElement(
+							'h1',
+							{ className: 'Lightbox-image-header' },
+							'Thank You for Adding Your Message!'
+						),
 						this.renderImages(),
 						this.renderSpinner(),
 						imageLoaded && this.renderFooter()

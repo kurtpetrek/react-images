@@ -447,14 +447,16 @@ var defaultStyles$2 = {
 function Footer(_ref, _ref2) {
 	var theme$$1 = _ref2.theme;
 	var caption = _ref.caption,
+	    prompt1 = _ref.prompt1,
+	    prompt2 = _ref.prompt2,
 	    countCurrent = _ref.countCurrent,
 	    countSeparator = _ref.countSeparator,
 	    countTotal = _ref.countTotal,
 	    showCount = _ref.showCount,
 	    show_donate_button = _ref.show_donate_button,
-	    props = objectWithoutProperties(_ref, ['caption', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button']);
+	    props = objectWithoutProperties(_ref, ['caption', 'prompt1', 'prompt2', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button']);
 
-	if (!caption && !showCount) return null;
+	// if (!caption && !showCount) return null;
 
 	var classes = StyleSheet$1.create(deepMerge(defaultStyles$3, theme$$1));
 
@@ -469,10 +471,15 @@ function Footer(_ref, _ref2) {
 	return React.createElement(
 		'div',
 		_extends({ className: css$1(classes.footer) }, props),
-		caption ? React.createElement(
+		prompt1 ? React.createElement(
 			'figcaption',
 			{ className: css$1(classes.footerCaption) },
-			caption
+			React.createElement(
+				'b',
+				null,
+				prompt2
+			),
+			prompt1
 		) : React.createElement('span', null),
 		React.createElement(
 			'div',
@@ -484,7 +491,7 @@ function Footer(_ref, _ref2) {
 					target: '_blank',
 					className: 'React-Images-Donate-Button'
 				},
-				'Donate'
+				'I\'d like to donate $5 to CPF'
 			) : ''
 		),
 		imageCount
@@ -1356,6 +1363,8 @@ var Lightbox = function (_Component) {
 
 			return React.createElement(Footer, {
 				caption: images[currentImage].caption,
+				prompt1: images[currentImage].prompt1,
+				prompt2: images[currentImage].prompt2,
 				countCurrent: currentImage + 1,
 				countSeparator: imageCountSeparator,
 				countTotal: images.length,

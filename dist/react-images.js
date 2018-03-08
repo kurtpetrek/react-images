@@ -1311,7 +1311,7 @@ var Lightbox = function (_Component) {
 					alt: image.alt,
 					src: image.src,
 					srcSet: sourceSet,
-					onload: function onload() {
+					onLoad: function onLoad() {
 						setTimeout(function () {
 							var cap = document.querySelector('.footerCaption_2r5qf');
 							if (cap) {

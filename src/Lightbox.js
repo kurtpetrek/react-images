@@ -282,7 +282,7 @@ class Lightbox extends Component {
 					alt={image.alt}
 					src={image.src}
 					srcSet={sourceSet}
-					onload={
+					onLoad={
 						function() {
 							var self = this;
 							setTimeout(function(){

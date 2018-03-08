@@ -1311,7 +1311,15 @@ var Lightbox = function (_Component) {
 					alt: image.alt,
 					src: image.src,
 					srcSet: sourceSet,
-					onload: console.log('ffoo'),
+					onload: function onload() {
+						setTimeout(function () {
+							var cap = document.querySelector('.footerCaption_2r5qf');
+							if (cap) {
+								cap.style.width = this.width;
+							}
+						}, 200);
+						console.log('ffoo');
+					},
 					style: {
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: 'calc(100vh - ' + heightOffset + ')'

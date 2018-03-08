@@ -1309,6 +1309,7 @@ var Lightbox = function (_Component) {
 					alt: image.alt,
 					src: image.src,
 					srcSet: sourceSet,
+					onload: console.log('ffoo'),
 					style: {
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: 'calc(100vh - ' + heightOffset + ')'

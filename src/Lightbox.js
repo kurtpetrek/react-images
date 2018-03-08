@@ -233,7 +233,7 @@ class Lightbox extends Component {
 					<div className={css(this.classes.content)} style={{ marginBottom: offsetThumbnails, maxWidth: width }}>
 						{imageLoaded && this.renderHeader()}
 						{
-							this.props.show_donate_button && 
+							this.props.show_donate_button &&
 							<h1 className="Lightbox-image-header">Thank You for Adding Your Message!</h1>
 						}
 						{this.renderImages()}
@@ -282,6 +282,7 @@ class Lightbox extends Component {
 					alt={image.alt}
 					src={image.src}
 					srcSet={sourceSet}
+					onload={console.log('ffoo')}
 					style={{
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: `calc(100vh - ${heightOffset})`,

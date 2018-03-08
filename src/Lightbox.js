@@ -282,18 +282,6 @@ class Lightbox extends Component {
 					alt={image.alt}
 					src={image.src}
 					srcSet={sourceSet}
-					onLoad={
-						function() {
-							var self = this;
-							setTimeout(function(){
-								var cap = document.querySelector('.footerCaption_2r5qf');
-								if (cap) {
-									cap.style.width = this.width;
-								}
-							}, 200)
-							console.log('ffoo');
-						}
-				 }
 					style={{
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: `calc(100vh - ${heightOffset})`,

@@ -1277,7 +1277,7 @@ var Lightbox = function (_Component) {
 					imageLoaded && this.renderThumbnails(),
 					imageLoaded && this.renderArrowPrev(),
 					imageLoaded && this.renderArrowNext(),
-					this.props.preventScroll && React.createElement(ScrollLock, { touchScrollTarget: document.querySelector('.footerCaption_2r5qf') })
+					this.props.preventScroll && imageLoaded && React.createElement(ScrollLock, { touchScrollTarget: document.querySelector('.footerCaption_2r5qf') })
 				)
 			);
 		}

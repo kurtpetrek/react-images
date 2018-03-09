@@ -1272,7 +1272,7 @@ var Lightbox = function (_Component) {
 						),
 						this.renderImages(),
 						this.renderSpinner(),
-						imageLoaded && this.renderFooter()
+						this.renderFooter()
 					),
 					imageLoaded && this.renderThumbnails(),
 					imageLoaded && this.renderArrowPrev(),
@@ -1369,14 +1369,14 @@ var Lightbox = function (_Component) {
 			if (!images || !images.length) return null;
 
 			return React.createElement(Footer, {
-				caption: images[currentImage].caption,
-				prompt1: images[currentImage].prompt1,
-				prompt2: images[currentImage].prompt2,
+				caption: this.state.imageLoaded ? images[currentImage].caption : '',
+				prompt1: this.state.imageLoaded ? images[currentImage].prompt1 : '',
+				prompt2: this.state.imageLoaded ? images[currentImage].prompt2 : '',
 				countCurrent: currentImage + 1,
 				countSeparator: imageCountSeparator,
 				countTotal: images.length,
 				showCount: showImageCount,
-				show_donate_button: show_donate_button
+				show_donate_button: this.state.imageLoaded && show_donate_button
 			});
 		}
 	}, {

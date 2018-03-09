@@ -1061,6 +1061,8 @@ var Lightbox = function (_Component) {
 				if (typeof this.props.currentImage === 'number') {
 					this.preloadImage(this.props.currentImage, this.handleImageLoaded);
 				}
+				document.body.style.overflow = 'hidden';
+				document.body.maxHeight;
 			}
 		}
 	}, {
@@ -1277,7 +1279,7 @@ var Lightbox = function (_Component) {
 					imageLoaded && this.renderThumbnails(),
 					imageLoaded && this.renderArrowPrev(),
 					imageLoaded && this.renderArrowNext(),
-					this.props.preventScroll && React__default.createElement(ScrollLock, null)
+					this.props.preventScroll && React__default.createElement(ScrollLock, { touchScrollTarget: document.querySelector('.footerCaption_2r5qf') })
 				)
 			);
 		}

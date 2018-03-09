@@ -56,6 +56,8 @@ class Lightbox extends Component {
 			if (typeof this.props.currentImage === 'number') {
 				this.preloadImage(this.props.currentImage, this.handleImageLoaded);
 			}
+			document.body.style.overflow = 'hidden';
+			document.body.maxHeight
 		}
 	}
 	componentWillReceiveProps (nextProps) {
@@ -243,7 +245,7 @@ class Lightbox extends Component {
 					{imageLoaded && this.renderThumbnails()}
 					{imageLoaded && this.renderArrowPrev()}
 					{imageLoaded && this.renderArrowNext()}
-					{this.props.preventScroll && <ScrollLock />}
+					{this.props.preventScroll && <ScrollLock touchScrollTarget={document.querySelector('.footerCaption_2r5qf')}/>}
 				</div>
 			</Container>
 		);

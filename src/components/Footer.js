@@ -44,7 +44,7 @@ function Footer ({
 					target="_blank"
 					className="React-Images-Donate-Button"
 					>
-					I'd like to donate $5 to CPF
+					I'd like to donate $5 to CPF.
 				</a>
 				:
 				''

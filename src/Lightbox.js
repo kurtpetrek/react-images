@@ -329,7 +329,8 @@ class Lightbox extends Component {
 			images,
 			imageCountSeparator,
 			showImageCount,
-			show_donate_button
+			show_donate_button,
+			footerRenderFunction,
 		} = this.props;
 
 		if (!images || !images.length) return null;
@@ -344,6 +345,8 @@ class Lightbox extends Component {
 				countTotal={images.length}
 				showCount={showImageCount}
 				show_donate_button={this.state.imageLoaded && show_donate_button}
+				currentImage={currentImage}
+				footerRenderFunction={footerRenderFunction}
 			/>
 		);
 	}

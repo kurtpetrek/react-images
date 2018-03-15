@@ -456,7 +456,9 @@ function Footer(_ref, _ref2) {
 	    countTotal = _ref.countTotal,
 	    showCount = _ref.showCount,
 	    show_donate_button = _ref.show_donate_button,
-	    props = objectWithoutProperties(_ref, ['caption', 'prompt1', 'prompt2', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button']);
+	    currentImage = _ref.currentImage,
+	    footerRenderFunction = _ref.footerRenderFunction,
+	    props = objectWithoutProperties(_ref, ['caption', 'prompt1', 'prompt2', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button', 'currentImage', 'footerRenderFunction']);
 
 	// if (!caption && !showCount) return null;
 
@@ -483,19 +485,7 @@ function Footer(_ref, _ref2) {
 			),
 			prompt1
 		) : React__default.createElement('span', null),
-		React__default.createElement(
-			'div',
-			{ className: 'React-Images-donate-button-container' },
-			show_donate_button ? React__default.createElement(
-				'a',
-				{
-					href: 'https://donate.cerebralpalsyfoundation.org/give/171692/#!/donation/checkout',
-					target: '_blank',
-					className: 'React-Images-Donate-Button'
-				},
-				'I\'d like to donate $5 to CPF.'
-			) : ''
-		),
+		footerRenderFunction ? footerRenderFunction(show_donate_button, currentImage) : '',
 		imageCount
 	);
 }
@@ -1365,7 +1355,8 @@ var Lightbox = function (_Component) {
 			    images = _props6.images,
 			    imageCountSeparator = _props6.imageCountSeparator,
 			    showImageCount = _props6.showImageCount,
-			    show_donate_button = _props6.show_donate_button;
+			    show_donate_button = _props6.show_donate_button,
+			    footerRenderFunction = _props6.footerRenderFunction;
 
 
 			if (!images || !images.length) return null;
@@ -1378,7 +1369,9 @@ var Lightbox = function (_Component) {
 				countSeparator: imageCountSeparator,
 				countTotal: images.length,
 				showCount: showImageCount,
-				show_donate_button: this.state.imageLoaded && show_donate_button
+				show_donate_button: this.state.imageLoaded && show_donate_button,
+				currentImage: currentImage,
+				footerRenderFunction: footerRenderFunction
 			});
 		}
 	}, {

@@ -347,6 +347,7 @@ class Lightbox extends Component {
 				show_donate_button={this.state.imageLoaded && show_donate_button}
 				currentImage={currentImage}
 				footerRenderFunction={footerRenderFunction}
+				currentImageData={this.state.imageLoaded ? images[currentImage] : null}
 			/>
 		);
 	}

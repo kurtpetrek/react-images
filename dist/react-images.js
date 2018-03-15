@@ -457,8 +457,9 @@ function Footer(_ref, _ref2) {
 	    showCount = _ref.showCount,
 	    show_donate_button = _ref.show_donate_button,
 	    currentImage = _ref.currentImage,
+	    currentImageData = _ref.currentImageData,
 	    footerRenderFunction = _ref.footerRenderFunction,
-	    props = objectWithoutProperties(_ref, ['caption', 'prompt1', 'prompt2', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button', 'currentImage', 'footerRenderFunction']);
+	    props = objectWithoutProperties(_ref, ['caption', 'prompt1', 'prompt2', 'countCurrent', 'countSeparator', 'countTotal', 'showCount', 'show_donate_button', 'currentImage', 'currentImageData', 'footerRenderFunction']);
 
 	// if (!caption && !showCount) return null;
 
@@ -485,7 +486,7 @@ function Footer(_ref, _ref2) {
 			),
 			prompt1
 		) : React__default.createElement('span', null),
-		footerRenderFunction ? footerRenderFunction(show_donate_button, currentImage) : '',
+		footerRenderFunction ? footerRenderFunction(show_donate_button, currentImageData) : '',
 		imageCount
 	);
 }
@@ -1371,7 +1372,8 @@ var Lightbox = function (_Component) {
 				showCount: showImageCount,
 				show_donate_button: this.state.imageLoaded && show_donate_button,
 				currentImage: currentImage,
-				footerRenderFunction: footerRenderFunction
+				footerRenderFunction: footerRenderFunction,
+				currentImageData: this.state.imageLoaded ? images[currentImage] : null
 			});
 		}
 	}, {

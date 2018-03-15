@@ -14,6 +14,7 @@ function Footer ({
 	showCount,
 	show_donate_button,
 	currentImage,
+	currentImageData,
 	footerRenderFunction,
 	...props,
 }, {
@@ -40,7 +41,7 @@ function Footer ({
 				</figcaption>
 			) : <span />}
 			{
-				footerRenderFunction ? footerRenderFunction(show_donate_button, currentImage) : ''
+				footerRenderFunction ? footerRenderFunction(show_donate_button, currentImageData) : ''
 			}
 			{imageCount}
 		</div>

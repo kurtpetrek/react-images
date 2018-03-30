@@ -277,18 +277,25 @@ class Lightbox extends Component {
 					https://fb.me/react-unknown-prop is resolved
 					<Swipeable onSwipedLeft={this.gotoNext} onSwipedRight={this.gotoPrev} />
 				*/}
-				<img
-					className={css(this.classes.image, imageLoaded && this.classes.imageLoaded)}
-					onClick={onClickImage}
-					sizes={sizes}
-					alt={image.alt}
-					src={image.src}
-					srcSet={sourceSet}
-					style={{
-						cursor: onClickImage ? 'pointer' : 'auto',
-						maxHeight: `calc(100vh - ${heightOffset})`,
-					}}
-				/>
+				<div className="lightbox-image-container">
+					<img
+						className='lightbox-thumbnail-image'
+						alt={image.alt}
+						src={image.photo_thumbnail_url}
+					/>
+
+					<img
+						className={css(this.classes.image, imageLoaded && this.classes.imageLoaded) + ' lightbox-full-image'}
+						onClick={onClickImage}
+						sizes={sizes}
+						alt={image.alt}
+						src={image.src}
+						srcSet={sourceSet}
+						style={{
+							cursor: onClickImage ? 'pointer' : 'auto',
+						}}
+					/>
+				</div>
 			</figure>
 		);
 	}

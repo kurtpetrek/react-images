@@ -1364,12 +1364,12 @@ var Lightbox = function (_Component) {
 			    footerRenderFunction = _props6.footerRenderFunction;
 
 
-			if (!images || !images.length) return null;
+			if (!images || !images.length || images.length <= currentImage) return null;
 
 			return React__default.createElement(Footer, {
-				caption: this.state.imageLoaded ? images[currentImage].caption : '',
-				prompt1: this.state.imageLoaded ? images[currentImage].prompt1 : '',
-				prompt2: this.state.imageLoaded ? images[currentImage].prompt2 : '',
+				caption: images[currentImage].caption,
+				prompt1: images[currentImage].prompt1,
+				prompt2: images[currentImage].prompt2,
 				countCurrent: currentImage + 1,
 				countSeparator: imageCountSeparator,
 				countTotal: images.length,
@@ -1377,7 +1377,7 @@ var Lightbox = function (_Component) {
 				show_donate_button: this.state.imageLoaded && show_donate_button,
 				currentImage: currentImage,
 				footerRenderFunction: footerRenderFunction,
-				currentImageData: this.state.imageLoaded ? images[currentImage] : null
+				currentImageData: images[currentImage]
 			});
 		}
 	}, {

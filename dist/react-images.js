@@ -1280,8 +1280,7 @@ var Lightbox = function (_Component) {
 			var _props3 = this.props,
 			    currentImage = _props3.currentImage,
 			    images = _props3.images,
-			    onClickImage = _props3.onClickImage,
-			    showThumbnails = _props3.showThumbnails;
+			    onClickImage = _props3.onClickImage;
 			var imageLoaded = this.state.imageLoaded;
 
 
@@ -1291,24 +1290,29 @@ var Lightbox = function (_Component) {
 			var sourceSet = normalizeSourceSet(image);
 			var sizes = sourceSet ? '100vw' : null;
 
-			var thumbnailsSize = showThumbnails ? this.theme.thumbnail.size : 0;
-			var heightOffset = this.theme.header.height + this.theme.footer.height + thumbnailsSize + this.theme.container.gutter.vertical + 'px';
-
 			return React__default.createElement(
 				'figure',
 				{ className: aphrodite.css(this.classes.figure) },
-				React__default.createElement('img', {
-					className: aphrodite.css(this.classes.image, imageLoaded && this.classes.imageLoaded),
-					onClick: onClickImage,
-					sizes: sizes,
-					alt: image.alt,
-					src: image.src,
-					srcSet: sourceSet,
-					style: {
-						cursor: onClickImage ? 'pointer' : 'auto',
-						maxHeight: 'calc(100vh - ' + heightOffset + ')'
-					}
-				})
+				React__default.createElement(
+					'div',
+					{ className: 'lightbox-image-container' },
+					React__default.createElement('img', {
+						className: 'lightbox-thumbnail-image',
+						alt: image.alt,
+						src: image.photo_thumbnail_url
+					}),
+					React__default.createElement('img', {
+						className: aphrodite.css(this.classes.image, imageLoaded && this.classes.imageLoaded) + ' lightbox-full-image',
+						onClick: onClickImage,
+						sizes: sizes,
+						alt: image.alt,
+						src: image.src,
+						srcSet: sourceSet,
+						style: {
+							cursor: onClickImage ? 'pointer' : 'auto'
+						}
+					})
+				)
 			);
 		}
 	}, {

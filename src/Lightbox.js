@@ -16,6 +16,8 @@ import bindFunctions from './utils/bindFunctions';
 import canUseDom from './utils/canUseDom';
 import deepMerge from './utils/deepMerge';
 
+import './animate.css';
+
 // consumers sometimes provide incorrect type or casing
 function normalizeSourceSet (data) {
 	const sourceSet = data.srcSet || data.srcset;
@@ -33,7 +35,11 @@ class Lightbox extends Component {
 
 		this.theme = deepMerge(defaultTheme, props.theme);
 		this.classes = StyleSheet.create(deepMerge(defaultStyles, this.theme));
-		this.state = { imageLoaded: false };
+		this.state = {
+			imageLoaded: false,
+			isAnimatingLeft: null,
+			isAnimatingRight: null,
+		};
 
 		bindFunctions.call(this, [
 			'gotoNext',
@@ -232,7 +238,12 @@ class Lightbox extends Component {
 				onTouchEnd={backdropClosesModal && this.closeBackdrop}
 			>
 				<div>
-					<div className={css(this.classes.content)} style={{ marginBottom: offsetThumbnails, maxWidth: width }}>
+					<div
+						className={css(this.classes.content) + ' ' +
+						(this.state.isAnimatingLeft && ' animate-in-left')
+						(this.state.isAnimatingRight && ' animate-in-right')
+						}
+						style={{ marginBottom: offsetThumbnails, maxWidth: width }}>
 						{imageLoaded && this.renderHeader()}
 						{
 							this.props.show_donate_button &&

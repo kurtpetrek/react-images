@@ -1,0 +1,25 @@
+.animate-in-left {
+  animation: animate-in-left .5s;
+}
+
+@keyframes animate-in-left {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+.animate-in-right {
+  animation: animate-in-right .5s;
+}
+
+@keyframes animate-in-right {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
